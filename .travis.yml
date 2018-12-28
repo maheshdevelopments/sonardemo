@@ -6,7 +6,7 @@ jdk: oraclejdk8
 #   sonarcloud: 
 #     organization: maheshdevelopments-github
 #     token: 
-#       secure: 3d89103adef0293768ed92476aadf23f51312b14
+#       secure: dd328002c2a3dcaf6e1606df486ec6f8265f16d1
 
 before_install:
 - chmod +x mvnw
