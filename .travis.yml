@@ -6,7 +6,7 @@ addons:
   sonarcloud: 
     organization: maheshdevelopments-github
     token: 
-      secure: dd328002c2a3dcaf6e1606df486ec6f8265f16d1
+      secure: 5c40c2413b14fc14d62d6f1aaacea354289cc605
 
 before_install:
 - chmod +x mvnw
