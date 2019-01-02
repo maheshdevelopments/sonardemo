@@ -3,10 +3,8 @@ package com.kg.sonardemo.controller;
 import java.util.List;
 
 import com.kg.sonardemo.entity.Team;
-import com.kg.sonardemo.entity.TeamDto;
 import com.kg.sonardemo.service.TeamService;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.HttpHeaders;
@@ -23,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
+
 
 /**
  * TeamController
@@ -42,10 +40,10 @@ public class TeamController {
     // private ModelMapper modelMapper;
 
     @PostMapping(value = "/", headers = "Accept=application/json")
-    public ResponseEntity<Void> createTeam(@RequestBody Team team, UriComponentsBuilder ucBuilder) {
+    public ResponseEntity<Void> createTeam(@RequestBody Team team) {
         teamService.createTeam(team);
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/{id}").buildAndExpand(team.getTeamid()).toUri());
+        // headers.setLocation(ucBuilder.path("/{id}").buildAndExpand(team.getTeamid()).toUri());
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
@@ -72,8 +70,8 @@ public class TeamController {
 
     @DeleteMapping(value="/{id}", headers ="Accept=application/json")
     public ResponseEntity<Team> deleteTeam(@PathVariable("id") Long id){
-        Team user = teamService.findByTeamId(id);
-        if (user == null) {
+        Team team = teamService.findByTeamId(id);
+        if (team == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         teamService.deleteTeamById(id);

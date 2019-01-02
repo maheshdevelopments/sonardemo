@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.kg.sonardemo.entity.Team;
 
-import org.springframework.http.ResponseEntity;
-
 
 
 public interface TeamService {

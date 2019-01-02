@@ -48,4 +48,9 @@ public class Team {
     public void setTeamname(String teamname) {
         this.teamname = teamname;
     }
+    
+    @Override
+    public String toString() {
+        return teamid+teamname;
+    }
 }
