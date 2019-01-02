@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "sonardemo",
+                "projectName": "sonardemo",
+                "workingDirectory": "d:\\Maheshwaran\\sonardemo",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "sonardemo",
+                "projectName": "sonardemo",
+                "workingDirectory": "d:\\Maheshwaran\\sonardemo",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}

@@ -38,14 +38,14 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    // @Autowired
+    // private ModelMapper modelMapper;
 
     @PostMapping(value = "/", headers = "Accept=application/json")
-    public ResponseEntity<Void> createTeam(@RequestBody TeamDto teamDto, UriComponentsBuilder ucBuilder) {
-        teamService.createTeam(modelMapper.map(teamDto, Team.class));
+    public ResponseEntity<Void> createTeam(@RequestBody Team team, UriComponentsBuilder ucBuilder) {
+        teamService.createTeam(team);
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/{id}").buildAndExpand(teamDto.getTeamid()).toUri());
+        headers.setLocation(ucBuilder.path("/{id}").buildAndExpand(team.getTeamid()).toUri());
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
@@ -64,9 +64,9 @@ public class TeamController {
     }
 
     @PutMapping(value = "/{id}", headers="Accept=application/json")
-    public ResponseEntity<String> updateTeam(@PathVariable("id") long id,@RequestBody TeamDto currentTeam)
+    public ResponseEntity<String> updateTeam(@PathVariable("id") long id,@RequestBody Team currentTeam)
     {
-        teamService.updateTeam(id,modelMapper.map(currentTeam, Team.class));
+        teamService.updateTeam(id,currentTeam);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
