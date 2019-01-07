@@ -62,10 +62,11 @@ public class TeamController {
     }
 
     @PutMapping(value = "/{id}", headers="Accept=application/json")
-    public ResponseEntity<String> updateTeam(@PathVariable("id") long id,@RequestBody Team currentTeam)
+    public ResponseEntity<Team> updateTeam(@PathVariable("id") long id,@RequestBody Team currentTeam)
     {
-        teamService.updateTeam(id,currentTeam);
-        return new ResponseEntity<>(HttpStatus.OK);
+
+      Team team=teamService.updateTeam(id,currentTeam);
+        return new ResponseEntity<>(team,HttpStatus.OK);
     }
 
     @DeleteMapping(value="/{id}", headers ="Accept=application/json")

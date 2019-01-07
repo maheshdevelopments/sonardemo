@@ -67,8 +67,9 @@ public class TeamControllerTest {
     Team edit = new TeamBuilder().name("shanmugam").build();
     Long id = 1L;
     // when(teamService.updateTeam(id, team1)).thenReturn(team1);
-    ResponseEntity<String> actual = teamController.updateTeam(id, edit);
+    ResponseEntity<Team> actual = teamController.updateTeam(id, edit);
     assertNotNull(actual);
+    System.out.println("Actual is  "+actual.getBody());
     System.out.println("expected-->" + expected);
     // assertEquals(edit, actual.getBody());
   }
