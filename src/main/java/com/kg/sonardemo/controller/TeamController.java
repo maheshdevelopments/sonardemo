@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 /**
  * TeamController
  */
@@ -40,9 +39,10 @@ public class TeamController {
     // private ModelMapper modelMapper;
 
     @PostMapping(value = "/", headers = "Accept=application/json")
-    public ResponseEntity<Void> createTeam(@RequestBody Team team) {
+    public ResponseEntity<String> createTeam(@RequestBody Team team) {
         teamService.createTeam(team);
         HttpHeaders headers = new HttpHeaders();
+        headers.add("headerName", "done1");
         // headers.setLocation(ucBuilder.path("/{id}").buildAndExpand(team.getTeamid()).toUri());
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
@@ -61,16 +61,14 @@ public class TeamController {
         return new ResponseEntity<>(team, HttpStatus.OK);
     }
 
-    @PutMapping(value = "/{id}", headers="Accept=application/json")
-    public ResponseEntity<Team> updateTeam(@PathVariable("id") long id,@RequestBody Team currentTeam)
-    {
-
-      Team team=teamService.updateTeam(id,currentTeam);
-        return new ResponseEntity<>(team,HttpStatus.OK);
+    @PutMapping(value = "/{id}", headers = "Accept=application/json")
+    public ResponseEntity<Team> updateTeam(@PathVariable("id") long id, @RequestBody Team currentTeam) {
+        Team team = teamService.updateTeam(id, currentTeam);
+        return new ResponseEntity<>(team, HttpStatus.OK);
     }
 
-    @DeleteMapping(value="/{id}", headers ="Accept=application/json")
-    public ResponseEntity<Team> deleteTeam(@PathVariable("id") Long id){
+    @DeleteMapping(value = "/{id}", headers = "Accept=application/json")
+    public ResponseEntity<Team> deleteTeam(@PathVariable("id") Long id) {
         Team team = teamService.findByTeamId(id);
         if (team == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -79,5 +77,4 @@ public class TeamController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    
 }
