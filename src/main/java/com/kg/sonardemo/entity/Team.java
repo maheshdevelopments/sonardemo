@@ -53,4 +53,8 @@ public class Team {
     public String toString() {
         return teamid+teamname;
     }
+
+	public Object willReturn(Team team1) {
+		return null;
+	}
 }

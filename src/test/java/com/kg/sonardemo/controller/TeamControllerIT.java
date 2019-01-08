@@ -41,7 +41,7 @@ public class TeamControllerIT {
     private static final String name = "mahesh";
     public Team team1 = new TeamBuilder().id(1L).name("mahesh").build();
     public Team team2 = new TeamBuilder().id(2L).name("aravinth").build();
-    public Team team3 = new TeamBuilder().id(3L).name("shanmugam").build();
+    public Team team3 = new TeamBuilder().id(1L).name("shanmugam").build();
     @Value("${local.server.port}")
     private int serverPort;
     @Autowired

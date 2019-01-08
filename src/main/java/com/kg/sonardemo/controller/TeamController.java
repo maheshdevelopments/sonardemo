@@ -52,7 +52,7 @@ public class TeamController {
         return new ResponseEntity<>(teamService.getTeams(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE , MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<Team> getTeamById(@PathVariable("id") long id) {
         Team team = teamService.findByTeamId(id);
         if (team == null) {
