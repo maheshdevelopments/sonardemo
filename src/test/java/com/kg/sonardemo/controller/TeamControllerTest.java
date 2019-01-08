@@ -34,8 +34,8 @@ public class TeamControllerTest {
   private TeamController teamController;
 
   public static List<Team> expected;
-  public Team team1 = new TeamBuilder().id(1L).name("mahesh").build();
-  public Team team2 = new TeamBuilder().id(2L).name("aravinth").build();
+  public Team team1 = new TeamBuilder().id(1).name("mahesh").build();
+  public Team team2 = new TeamBuilder().id(2).name("aravinth").build();
 
   @Test
   public void createTeamTest() {

@@ -42,13 +42,13 @@ public class TeamController {
     public ResponseEntity<String> createTeam(@RequestBody Team team) {
         teamService.createTeam(team);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("headerName", "done1");
         // headers.setLocation(ucBuilder.path("/{id}").buildAndExpand(team.getTeamid()).toUri());
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
     @GetMapping("/")
-    public @ResponseBody ResponseEntity<List<Team>> all() {
+    @ResponseBody
+    public ResponseEntity<List<Team>> all() {
         return new ResponseEntity<>(teamService.getTeams(), HttpStatus.OK);
     }
 

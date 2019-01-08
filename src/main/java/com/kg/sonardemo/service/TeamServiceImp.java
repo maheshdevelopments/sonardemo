@@ -14,29 +14,28 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class TeamServiceImp implements TeamService {
 
-    @Autowired
-    TeamRepository teamRepository;
+   @Autowired
+   TeamRepository teamRepository;
 
-    public Team createTeam(Team team) {
-        return teamRepository.save(team);
-    }
+   public Team createTeam(Team team) {
+       return teamRepository.save(team);
+   }
 
-    public List<Team> getTeams() {
-        return teamRepository.findAll();
-    }
+   public List<Team> getTeams() {
+       return teamRepository.findAll();
+   }
 
-    public Team findByTeamId(Long id) {
-        return teamRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Not found"));
-    }
+   public Team findByTeamId(Long id) {
+       return teamRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Not found"));
+   }
 
-    public Team updateTeam(Long id,Team team) {
-        Team t = teamRepository.getOne(id);
-        t.setTeamname(team.getTeamname());
-        return teamRepository.save(t);
-    }
+   public Team updateTeam(Long id,Team team) {
+       Team t = teamRepository.getOne(id);
+       t.setTeamname(team.getTeamname());
+       return teamRepository.save(t);
+   }
 
-    public void deleteTeamById(Long id) {
-        teamRepository.deleteById(id);
-    }
-
+   public void deleteTeamById(Long id) {
+       teamRepository.deleteById(id);
+   }
 }

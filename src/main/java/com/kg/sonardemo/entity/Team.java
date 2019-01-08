@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long teamid;
+    private long teamid;
 
     private String teamname;
     
@@ -24,15 +24,15 @@ public class Team {
     /**
      * @return the teamid
      */
-    public Long getTeamid() {
+    public long getTeamid() {
         return teamid;
     }
 
     /**
-     * @param teamid the teamid to set
+     * @param l the teamid to set
      */
-    public void setTeamid(Long teamid) {
-        this.teamid = teamid;
+    public void setTeamid(long l) {
+        this.teamid = l;
     }
 
     /**

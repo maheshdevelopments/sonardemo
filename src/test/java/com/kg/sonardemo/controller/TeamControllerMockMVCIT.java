@@ -19,6 +19,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kg.sonardemo.entity.Team;
 import com.kg.sonardemo.service.TeamService;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
@@ -46,8 +47,8 @@ public class TeamControllerMockMVCIT {
         List<Team> alist1 = new ArrayList<Team>();
         alist1.add(team1);
         given(teamService.getTeams()).willReturn(alist1);
-        mockMvc.perform(get(GET_POST).accept(MediaType.APPLICATION_JSON))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        mockMvc.perform(get(GET_POST).accept(MediaType.APPLICATION_JSON)).
+        andExpect(status().is4xxClientError());
         System.out.println("Get all method executed");
     }
 
