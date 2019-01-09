@@ -77,10 +77,10 @@ public class TeamControllerMockMVCIT {
         alist.add(team1);
         when(teamService.findByTeamId(team1.getTeamid())).thenReturn(team1);
         mockMvc.perform(delete(DELETE, team1.getTeamid()));
+        System.out.println("Delete method executed");
         // verify(eventService, times(1)).find(currentevent.getId());
         // verify(teamService, times(1)).deleteTeamById(team1.getTeamid());
         // verifyNoMoreInteractions(teamService);
-        System.out.println("Delete method executed");
     }
 
     @Test
