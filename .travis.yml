@@ -1,21 +1,6 @@
-sudo: required
 language: java
-jdk: oraclejdk8
-
-addons: 
-  sonarcloud: 
-    organization: maheshdevelopments-github
-    token: 
-      secure: 5c40c2413b14fc14d62d6f1aaacea354289cc605
-
+sudo: false # faster builds
 before_install:
 - chmod +x mvnw
-
-script:
-- "./mvnw clean install -B"
-- "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
-
-cache:
-  directories:
-  - "$HOME/.m2/repository"
-  # - "$HOME/.sonar/cache"
+after_success:
+- bash <(curl -s https://codecov.io/bash)
