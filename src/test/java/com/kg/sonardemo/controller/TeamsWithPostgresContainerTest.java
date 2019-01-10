@@ -34,8 +34,8 @@ public class TeamsWithPostgresContainerTest {
 
         @Test
         public void testWithDb() {
-                Team teamA = new TeamBuilder().id(1L).name("Team 1").build();
-                Team teamB = new TeamBuilder().id(1L).name("Team 2").build();
+                Team teamA = new TeamBuilder().id(1L).name("Sukumar").build();
+                Team teamB = new TeamBuilder().id(1L).name("Manoj").build();
 
                 Team team1 = teamRepository.save(teamA);
                 Team team2 = teamRepository.save(teamB);

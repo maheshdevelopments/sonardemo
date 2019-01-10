@@ -11,15 +11,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * Team
  */
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long teamid;
 
     private String teamname;
-    
-  
 
     /**
      * @return the teamid
@@ -48,13 +46,13 @@ public class Team {
     public void setTeamname(String teamname) {
         this.teamname = teamname;
     }
-    
+
     @Override
     public String toString() {
-        return teamid+teamname;
+        return teamid + teamname;
     }
 
-	public Object willReturn(Team team1) {
-		return null;
-	}
+    public Object willReturn(Team team1) {
+        return null;
+    }
 }
